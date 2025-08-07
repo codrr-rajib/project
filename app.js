@@ -53,7 +53,7 @@ store.on("error", ()=>{
 })
 
 const sessionOptions={
-    store,
+    store:store,
     secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
@@ -128,4 +128,5 @@ app.listen(8080, () => {
 
     // app.all('*', (req, res, next) => {
     //     next(new Expresserr(404,'Page Not Found'));
+
     // });  

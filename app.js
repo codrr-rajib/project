@@ -88,20 +88,13 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.get('/Demouser', async(req, res) => {
-// let fakeuser = new User({
-//     email: "student@gmail.com",
-//     username: "delta-student",
-// });
-// let registeredUser = await User.register(fakeuser, "password123");
-// res.send(registeredUser);
-// });
-
  app.use('/listings', listingsRouter);
  app.use('/listings/:id/reviews',reviewsRouter);
  app.use('/', uaserRouter);
 
-
+app.get("/", (req, res) => {
+  res.redirect("/listings")
+});
     app.use((err, req, res, next) => {
         let{statusCode=500, message="something went wrong !"} = err;
         res.render("error.ejs",{message});
@@ -114,20 +107,6 @@ app.listen(8080, () => {
 });
 
 
-// app.get('/testListing', async (req, res) => {
-//     let sampleListing = new Listing({
-//         title: "My new Villa",
-//         description: "A beautiful villa with a sea view",
-//         price:1200,
-//         location: "Maldives",
-//         country: "Maldives",
-//     });
-    // await sampleListing.save()
-    // console.log("sample was saved")
-    // res.send("successfully tasted");
 
-    // app.all('*', (req, res, next) => {
-    //     next(new Expresserr(404,'Page Not Found'));
 
-    // });  
 

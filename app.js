@@ -21,7 +21,7 @@ const reviewsRouter= require('./routes/review');
 const uaserRouter= require('./routes/user');
 
 
-const dburl= process.env.ATLASDB_URL
+const dburl= process.env.MONGO_URL
 
 main().then(() => {
     console.log('Connected to MongoDB');
@@ -130,3 +130,4 @@ app.listen(8080, () => {
     //     next(new Expresserr(404,'Page Not Found'));
 
     // });  
+
